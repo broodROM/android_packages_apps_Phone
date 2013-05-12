@@ -1987,8 +1987,11 @@ public class CallNotifier extends Handler
      *  Inner class to handle emergency call tone and vibrator
      */
     private class EmergencyTonePlayerVibrator {
-        private final int EMG_VIBRATE_LENGTH = 1000;  // ms.
-        private final int EMG_VIBRATE_PAUSE  = 1000;  // ms.
+       private final int valuevib= SystemProperties.getInt("ro.phone.vib.length",0);
+       private final int valuepause= SystemProperties.getInt("ro.phone.vib.pause",0);
+
+        private final int EMG_VIBRATE_LENGTH = valuevib;
+        private final int EMG_VIBRATE_PAUSE  = valuepause; 
         private final long[] mVibratePattern =
                 new long[] { EMG_VIBRATE_LENGTH, EMG_VIBRATE_PAUSE };
 

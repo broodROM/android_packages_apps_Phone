@@ -49,8 +49,11 @@ public class Ringer {
     private static final int STOP_RING = 3;
     private static final int INCREASE_RING_VOLUME = 4;
 
-    private static final int VIBRATE_LENGTH = 1000; // ms
-    private static final int PAUSE_LENGTH = 1000; // ms
+    private static final int valuevib= SystemProperties.getInt("ro.phone.vib.length",0);
+    private static final int valuepause= SystemProperties.getInt("ro.phone.vib.pause",0);
+
+    private static final int VIBRATE_LENGTH = valuevib;
+    private static final int PAUSE_LENGTH = valuepause;  
 
     /** The singleton instance. */
     private static Ringer sInstance;
