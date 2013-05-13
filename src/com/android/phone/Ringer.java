@@ -292,8 +292,19 @@ public class Ringer {
         }
     }
 
-    private class VibratorThread extends Thread {
+     private class VibratorThread extends Thread {
         public void run() {
+
+     // Make sure the value are never 0
+     if (valuevib == 0) {
+        int VIBRATE_LENGTH = 1000;
+     }
+
+     if (valuepause == 0) {
+        int PAUSE_LENGTH = 1000;
+     }
+
+
             while (mContinueVibrating) {
                 mVibrator.vibrate(VIBRATE_LENGTH);
                 SystemClock.sleep(VIBRATE_LENGTH + PAUSE_LENGTH);
